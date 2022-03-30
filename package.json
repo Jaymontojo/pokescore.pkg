@@ -1,6 +1,6 @@
 {
   "name": "pokescore.pkg",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "package of utility functions for sprint.rest",
   "main": "index.js",
   "scripts": {
