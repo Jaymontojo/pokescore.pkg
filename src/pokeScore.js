@@ -11,6 +11,11 @@ const PokeScore = {
   isString(idOrName) {
     if(typeof idOrName === "string") return true;
     else return false
+  },
+
+  isNumber(idOrName) {
+    if(typeof idOrName === "number") return true;
+    else return false
   }
 };
 

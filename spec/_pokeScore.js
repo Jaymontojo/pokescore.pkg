@@ -1,6 +1,6 @@
 const PokeScore = require("../src/pokeScore");
 const { expect } = require("chai");
-const { identity, sanitize, isString } = PokeScore;
+const { identity, sanitize, isString, isNumber } = PokeScore;
 
 describe("PokeScore", () => {
   describe("identity", () => {
@@ -40,8 +40,28 @@ describe("PokeScore", () => {
       expect(typeof result).to.equal("boolean");
       expect(result).to.equal(true);
     });
+
     it('should take an input and return false if it is not', () => {
       const result = isString(1456);
+      expect(typeof result).to.equal("boolean");
+      expect(result).to.equal(false);
+    });
+  });
+
+  describe("isNumber", () => {
+    it('should exist as a method on the PokeScore object', () => {
+      expect(isString).to.exist;
+      expect(typeof isString).to.equal("function");
+    });
+
+    it('should take an input and return true if it is a number', () => {
+      const result = isNumber(11223);
+      expect(typeof result).to.equal("boolean");
+      expect(result).to.equal(true);
+    });
+
+    it('should take an input and return false if it is not', () => {
+      const result = isNumber("Tauranga Leela");
       expect(typeof result).to.equal("boolean");
       expect(result).to.equal(false);
     });
