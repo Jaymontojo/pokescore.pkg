@@ -16,6 +16,16 @@ const PokeScore = {
   isNumber(idOrName) {
     if(typeof idOrName === "number") return true;
     else return false
+  },
+
+  find(collection, idOrName){
+    let result;
+    if(PokeScore.isString(idOrName)) {
+      result = collection.filter(el => el.name.toLowerCase() === idOrName);
+    } else if(PokeScore.isNumber(idOrName)){
+      result = collection.filter(el => parseInt(el.id) === idOrName);
+    }
+    return result[0];
   }
 };
 

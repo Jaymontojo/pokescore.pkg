@@ -1,6 +1,7 @@
 const PokeScore = require("../src/pokeScore");
+const {pokemon, attacks, types} = require("../data/index")
 const { expect } = require("chai");
-const { identity, sanitize, isString, isNumber } = PokeScore;
+const { identity, sanitize, isString, isNumber, find } = PokeScore;
 
 describe("PokeScore", () => {
   describe("identity", () => {
@@ -65,5 +66,22 @@ describe("PokeScore", () => {
       expect(typeof result).to.equal("boolean");
       expect(result).to.equal(false);
     });
+  });
+
+  describe("find", ()=>{
+    it('should exist as a method on the PokeScore object', () => {
+      expect(find).to.exist;
+      expect(typeof find).to.equal("function");
+    });
+
+    it('should return a pokemon object when given an id', () => {
+      const result = find(pokemon, 1)
+      expect(result).to.equal(pokemon[0]);
+    });
+
+    it('should return a pokemon object when given a name', () => {
+      const result = find(pokemon, "bulbasaur")
+      expect(result).to.equal(pokemon[0]);
+    });
   })
-})
+});
