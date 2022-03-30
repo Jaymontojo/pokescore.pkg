@@ -1,0 +1,23 @@
+{
+  "name": "pokescore.pkg",
+  "version": "1.0.0",
+  "description": "package of utility functions for sprint.rest",
+  "main": "index.js",
+  "scripts": {
+    "release": "standard-version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jaymontojo/pokescore.pkg.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jaymontojo/pokescore.pkg/issues"
+  },
+  "homepage": "https://github.com/Jaymontojo/pokescore.pkg#readme",
+  "devDependencies": {
+    "standard-version": "^9.3.2"
+  }
+}
