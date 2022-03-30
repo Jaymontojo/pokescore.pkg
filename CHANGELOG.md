@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/Jaymontojo/pokescore.pkg/compare/v1.2.0...v1.3.0) (2022-03-30)
+
+
+### Features
+
+* add isNumber method ([8bf053b](https://github.com/Jaymontojo/pokescore.pkg/commit/8bf053b2873956242a8e27698fe6e18696c46903))
+* add isString method ([965fa14](https://github.com/Jaymontojo/pokescore.pkg/commit/965fa14a308be3dc0eed74885319afe9b1dd464b))
+
 ## [1.2.0](https://github.com/Jaymontojo/pokescore.pkg/compare/v1.1.0...v1.2.0) (2022-03-30)
 
 
