@@ -4,7 +4,8 @@
   "description": "package of utility functions for sprint.rest",
   "main": "index.js",
   "scripts": {
-    "release": "standard-version"
+    "release": "standard-version",
+    "test": "mocha spec"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,8 @@
   },
   "homepage": "https://github.com/Jaymontojo/pokescore.pkg#readme",
   "devDependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^9.2.2",
     "standard-version": "^9.3.2"
   }
 }
