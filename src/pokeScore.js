@@ -1,5 +1,8 @@
 //refac: convert to typescript
 class PokeScore {
+  constructor(){
+    this.atkTable = {};
+  }
   identity(val) {
     return val;
   };
@@ -20,7 +23,18 @@ class PokeScore {
     if(typeof idOrName === "number") return true;
     else return false
   };
-  
+
+  generateAtkTable(collection) {
+    for(let attackType in collection) {
+      for(let attack of collection[attackType]){
+        const name = attack.name.toLowerCase();
+        if(!this.atkTable[name]) {
+          this.atkTable[name] = attackType;
+        }
+      }
+    }
+  }
+
   findPokemon(collection, paramsObj) {
     const pKey = Object.keys(paramsObj)[0];
     const pVal = this.sanitize(paramsObj[pKey])

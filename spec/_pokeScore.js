@@ -68,7 +68,23 @@ describe("PokeScore", () => {
     });
   });
 
-  describe("find", ()=>{
+  describe.only("generateAtkTable", ()=> {
+    beforeEach(()=>{
+      PokeScore.generateAtkTable(attacks)
+    })
+    it('should exist as a method on the PokeScore Class', () => {
+      expect(PokeScore.generateAtkTable).to.exist;
+      expect(typeof PokeScore.generateAtkTable).to.equal("function");
+    });
+
+    it('should generate an attack table for lookups', () => {
+      const actualLength = Object.keys(PokeScore.atkTable).length;
+      const expectedLength = attacks.fast.length + attacks.special.length;
+      expect(actualLength).to.equal(expectedLength);
+    });
+  });
+
+  describe("findPokemon", ()=>{
     it('should exist as a method on the PokeScore object', () => {
       expect(PokeScore.findPokemon).to.exist;
       expect(typeof PokeScore.findPokemon).to.equal("function");
