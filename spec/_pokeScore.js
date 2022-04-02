@@ -68,7 +68,7 @@ describe("PokeScore", () => {
     });
   });
 
-  describe.only("generateAtkTable", ()=> {
+  describe("generateAtkTable", ()=> {
     beforeEach(()=>{
       PokeScore.generateAtkTable(attacks)
     })

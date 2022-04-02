@@ -26,14 +26,12 @@ class PokeScore {
 
   generateAtkTable(collection) {
     for(let attackType in collection) {
-      for(let attack of collection[attackType]){
+      collection[attackType].forEach( attack => {
         const name = attack.name.toLowerCase();
-        if(!this.atkTable[name]) {
-          this.atkTable[name] = attackType;
-        }
-      }
-    }
-  }
+        if(!this.atkTable[name]) this.atkTable[name] = attackType;
+      });
+    };
+  };
 
   findPokemon(collection, paramsObj) {
     const pKey = Object.keys(paramsObj)[0];
