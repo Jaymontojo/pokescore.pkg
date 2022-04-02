@@ -1,4 +1,3 @@
-//refac: as a class
 //refac: convert to typescript
 class PokeScore {
   identity(val) {
@@ -22,8 +21,6 @@ class PokeScore {
     else return false
   };
   
-  //takes collection * prams obj ex {name: "BuLbAsAuR"}
-  //returns array of results that match.
   findPokemon(collection, paramsObj) {
     const pKey = Object.keys(paramsObj)[0];
     const pVal = this.sanitize(paramsObj[pKey])
