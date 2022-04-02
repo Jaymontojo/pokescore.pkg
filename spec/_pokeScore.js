@@ -1,7 +1,7 @@
 const PokeScore = require("../src/pokeScore");
-const {pokemon, attacks, types} = require("../data/index")
+const {pokemon, attacks, types} = require("../data/index");
 const { expect } = require("chai");
-const { identity, sanitize, isString, isNumber, find } = PokeScore;
+const { identity, sanitize, isString, isNumber, findPokemon } = PokeScore;
 
 describe("PokeScore", () => {
   describe("identity", () => {
@@ -68,20 +68,25 @@ describe("PokeScore", () => {
     });
   });
 
-  describe("find", ()=>{
+  describe.only("find", ()=>{
     it('should exist as a method on the PokeScore object', () => {
-      expect(find).to.exist;
-      expect(typeof find).to.equal("function");
+      expect(findPokemon).to.exist;
+      expect(typeof findPokemon).to.equal("function");
     });
 
-    it('should return a pokemon object when given an id', () => {
-      const result = find(pokemon, 1)
-      expect(result).to.equal(pokemon[0]);
+    it('should return an array of pokemon objects when given a params object with id (integer)', () => {
+      const result = findPokemon(pokemon, {id: 1});
+      expect(result[0]).to.deep.equal(pokemon[0]);
     });
 
-    it('should return a pokemon object when given a name', () => {
-      const result = find(pokemon, "bulbasaur")
-      expect(result).to.equal(pokemon[0]);
+    it('should return an array of pokemon objects when given a params object with id (string)', () => {
+      const result = findPokemon(pokemon, {id: "001"});
+      expect(result[0]).to.deep.equal(pokemon[0]);
+    });
+
+    it('should return an array of pokemon objects when given a params object with name (string)', () => {
+      const result = findPokemon(pokemon, {name: "bulbasaur"});
+      expect(result[0]).to.deep.equal(pokemon[0]);
     });
   })
 });

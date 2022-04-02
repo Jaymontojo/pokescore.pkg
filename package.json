@@ -1,8 +1,8 @@
 {
-  "name": "pokescore.pkg",
+  "name": "poke-score",
   "version": "1.4.0",
   "description": "package of utility functions for sprint.rest",
-  "main": "index.js",
+  "main": "src/pokeScore.js",
   "scripts": {
     "release": "standard-version",
     "test": "mocha spec"
