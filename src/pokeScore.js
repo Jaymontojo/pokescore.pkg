@@ -33,6 +33,17 @@ class PokeScore {
     };
   };
 
+  //NOTE: This will not be able to find 
+  findAttack(collection, paramsObj) {
+    if(!Object.keys(this.atkTable).length) {
+      this.generateAtkTable(collection);
+    };
+    const pKey = Object.keys(paramsObj)[0];
+    const pVal = this.sanitize(paramsObj[pKey]);
+    const atkType = this.atkTable[pVal];
+    return collection[atkType].filter(attack => attack[pKey].toLowerCase() === pVal);
+  };
+
   findPokemon(collection, paramsObj) {
     const pKey = Object.keys(paramsObj)[0];
     const pVal = this.sanitize(paramsObj[pKey])

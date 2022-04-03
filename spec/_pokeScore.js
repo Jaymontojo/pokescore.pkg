@@ -84,8 +84,8 @@ describe("PokeScore", () => {
     });
   });
 
-  describe("findPokemon", ()=>{
-    it('should exist as a method on the PokeScore object', () => {
+  describe("findPokemon", ()=> {
+    it('should exist as a method on the PokeScore Class', () => {
       expect(PokeScore.findPokemon).to.exist;
       expect(typeof PokeScore.findPokemon).to.equal("function");
     });
@@ -104,5 +104,19 @@ describe("PokeScore", () => {
       const result = PokeScore.findPokemon(pokemon, {name: "bulbasaur"});
       expect(result[0]).to.deep.equal(pokemon[0]);
     });
-  })
+  });
+
+  describe("findAttack", () => {
+    it('should exist as a method on the PokeScore Class', () => {
+      expect(PokeScore.findPokemon).to.exist;
+      expect(typeof PokeScore.findPokemon).to.equal("function");
+    });
+
+    it("should return an array of attack objects given a params object with name (string) ", () => {
+      const actual = PokeScore.findAttack(attacks, {name: "Tackle"});
+      console.log(actual)
+      const expected = attacks.fast[0]
+      expect(actual[0]).to.deep.equal(expected);
+    });
+  });
 });
