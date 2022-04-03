@@ -114,7 +114,6 @@ describe("PokeScore", () => {
 
     it("should return an array of attack objects given a params object with name (string) ", () => {
       const actual = PokeScore.findAttack(attacks, {name: "Tackle"});
-      console.log(actual)
       const expected = attacks.fast[0]
       expect(actual[0]).to.deep.equal(expected);
     });

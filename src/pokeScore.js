@@ -35,13 +35,14 @@ class PokeScore {
 
   //NOTE: This will not be able to find 
   findAttack(collection, paramsObj) {
-    if(!Object.keys(this.atkTable).length) {
-      this.generateAtkTable(collection);
-    };
+    if(!Object.keys(this.atkTable).length) this.generateAtkTable(collection);
     const pKey = Object.keys(paramsObj)[0];
     const pVal = this.sanitize(paramsObj[pKey]);
     const atkType = this.atkTable[pVal];
-    return collection[atkType].filter(attack => attack[pKey].toLowerCase() === pVal);
+    const result = pKey === "name" ?
+      collection[atkType].filter(attack => attack[pKey].toLowerCase() === pVal) :
+      undefined;
+    return result;
   };
 
   findPokemon(collection, paramsObj) {
@@ -55,6 +56,13 @@ class PokeScore {
     };
     return undefined;
   };
+
+  //generateTypeTable
+  //findAttack
+  //addPokemon
+  //addAttack => should add a new type to this.AtkTable / generateAtkTable if undefined;
+  //addType => should add a new type to this.typeTable / generatetypeTable if undefined;
+
 };
 
 module.exports = new PokeScore();
