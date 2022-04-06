@@ -71,7 +71,8 @@ describe("PokeScore", () => {
   describe("generateAtkTable", ()=> {
     beforeEach(()=>{
       PokeScore.generateAtkTable(attacks)
-    })
+    });
+
     it('should exist as a method on the PokeScore Class', () => {
       expect(PokeScore.generateAtkTable).to.exist;
       expect(typeof PokeScore.generateAtkTable).to.equal("function");
@@ -80,6 +81,23 @@ describe("PokeScore", () => {
     it('should generate an attack table for lookups', () => {
       const actualLength = Object.keys(PokeScore.atkTable).length;
       const expectedLength = attacks.fast.length + attacks.special.length;
+      expect(actualLength).to.equal(expectedLength);
+    });
+  });
+
+  describe.only("generateTypesTable", ()=> {
+    beforeEach(()=>{
+      PokeScore.generateTypesTable(types);
+    });
+
+    it('should exist as a method on the PokeScore Class', () => {
+      expect(PokeScore.generateTypesTable).to.exist;
+      expect(typeof PokeScore.generateTypesTable).to.equal("function");
+    });
+
+    it('should generate an types table for lookups', () => {
+      const actualLength = Object.keys(PokeScore.typesTable).length;
+      const expectedLength = types.length;
       expect(actualLength).to.equal(expectedLength);
     });
   });

@@ -1,7 +1,8 @@
 //refac: convert to typescript
 class PokeScore {
   constructor(){
-    this.atkTable = {};
+    this.atkTable = {}; //Key is attack name val is which field it belongs to
+    this.typesTable = {};
   }
   identity(val) {
     return val;
@@ -33,6 +34,15 @@ class PokeScore {
     };
   };
 
+  generateTypesTable(collection) {
+
+    console.log(collection);
+    for(let element of collection) {
+      const type = element.toLowerCase();
+      if(!this.typeTable[type]) this.typeTable[type] = attackType;
+    };
+  };
+
   //NOTE: This will not be able to find 
   findAttack(collection, paramsObj) {
     if(!Object.keys(this.atkTable).length) this.generateAtkTable(collection);
@@ -44,7 +54,7 @@ class PokeScore {
       undefined;
     return result;
   };
-
+  
   findPokemon(collection, paramsObj) {
     const pKey = Object.keys(paramsObj)[0];
     const pVal = this.sanitize(paramsObj[pKey])
@@ -56,13 +66,17 @@ class PokeScore {
     };
     return undefined;
   };
+  
+  // findType(){
+  //   if(!Object.keys(this.atkTable).length) this.generateAtkTable(collection);
 
-  //generateTypeTable
-  //findAttack
+  // }
+  
+  //findType
   //addPokemon
   //addAttack => should add a new type to this.AtkTable / generateAtkTable if undefined;
   //addType => should add a new type to this.typeTable / generatetypeTable if undefined;
-
+  //Consider breaking changes...
 };
 
 module.exports = new PokeScore();
